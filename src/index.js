@@ -4,6 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+document.addEventListener('keydown', (e) => {
+  const keyPressed = e.key.toUpperCase();
+  const audio = document.getElementById(keyPressed)
+  if(audio){
+      audio.currentTime= 0;
+      audio.parentElement.classList.add("active");
+      audio.play();
+
+  const removeClass = () =>{
+    audio.parentElement.classList.remove("active")
+  }
+  setTimeout(removeClass, 200);
+  } 
+  
+});
 ReactDOM.render(
   <React.StrictMode>
     <App />
